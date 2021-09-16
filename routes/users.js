@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const Post = require("../models/Post");
-const { route } = require("./auth");
+const validatetoken = require("../middleware/authentication");
 
 //UPDATE
 
