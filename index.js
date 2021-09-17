@@ -13,10 +13,12 @@ dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 const port = process.env.PORT || 5000;
-console.log(port);
+const connectionStr =
+  process.env.MONGO_URL ||
+  "mongodb+srv://garkhwal:mahesh.g7@cluster0.4ubty.mongodb.net/test?authSource=admin&replicaSet=atlas-i3qwin-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(connectionStr, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
