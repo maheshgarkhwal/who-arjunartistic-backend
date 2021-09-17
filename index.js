@@ -12,6 +12,8 @@ const multer = require("multer");
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
+const port = process.env.PORT || 5000;
+console.log(port);
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -41,6 +43,6 @@ app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/categories", catRoute);
 
-app.listen("5000", () => {
+app.listen(port, () => {
   console.log("listening to port 5000");
 });
